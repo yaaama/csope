@@ -1,3 +1,5 @@
+DEBUG := 1
+
 LIBS:=ncurses readline
 
 CFLAGS += $(if $(SAN),-fsanitize=${SAN})
@@ -6,9 +8,11 @@ LDLIBS=${shell pkg-config --libs ${LIBS}}
 LEX:=flex
 
 ifeq (${DEBUG}, 1)
-  CFLAGS += -O0 -ggdb -Wall -Wpedantic
+	CFLAGS += -O0 -ggdb -Wall -Wpedantic -Wextra -Wstrict-prototypes -Wold-style-definition
+	CFLAGS += -Wshadow -Wvla -pedantic -Wno-unused-parameter -Wno-unused-variable
+	CFLAGS += -fsanitize=address -fsanitize=undefined -fsanitize-undefined-trap-on-error
 else
-  CFLAGS += -O3 -flto=auto -fomit-frame-pointer
+	CFLAGS += -O3 -flto=auto -fomit-frame-pointer
 endif
 
 LEXD:=source/
