@@ -346,7 +346,7 @@ static void putcrossref(void) {
 
 /* HBB 20000421: new function, for avoiding memory leaks */
 /* free the cross reference symbol table */
-void freecrossref() {
+void freecrossref(void) {
 	if(symbol) free(symbol);
 	symbol	= NULL;
 	symbols = 0;

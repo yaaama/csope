@@ -77,11 +77,11 @@ static int getc_function(FILE *ignore) {
 	return input_char;
 }
 
-static int input_available_hook() {
+static int input_available_hook(void) {
 	return input_available;
 }
 
-static void redisplay_function() {
+static void redisplay_function(void) {
 	window_change |= CH_INPUT;
 }
 
@@ -149,7 +149,7 @@ static void callback_handler(char *line) {
 	}
 }
 
-static inline void previous_history_proxy(){
+static inline void previous_history_proxy(void){
 	HIST_ENTRY* i = previous_history();
     if(!i) { return; }
 
@@ -166,7 +166,7 @@ static inline void previous_history_proxy(){
 	rl_point = strlen(i->line);
 }
 
-static inline void next_history_proxy(){
+static inline void next_history_proxy(void){
 	HIST_ENTRY* i = next_history();
 	if(i){
         rl_replace_line(i->line, 0);
@@ -178,7 +178,7 @@ static inline void next_history_proxy(){
 	}
 }
 
-void rlinit() {
+void rlinit(void) {
 	rl_readline_name = PROGRAM_NAME;
 
 	using_history();

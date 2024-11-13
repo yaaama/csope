@@ -165,7 +165,7 @@ static void addsrcdir(char *dir) {
 
 /* HBB 20000421: new function, for avoiding leaks */
 /* free list of src directories */
-void freesrclist() {
+void freesrclist(void) {
 	if(!srcdirs) return;
 	while(nsrcdirs > 1)
 		free(srcdirs[--nsrcdirs]);
@@ -232,7 +232,7 @@ static void addincdir(char *name, char *path) {
 /* HBB 2000421: new function, for avoiding memory leaks */
 /* free the list of include files, if wanted */
 
-void freeinclist() {
+void freeinclist(void) {
 	if(!incdirs) return;
 	while(nincdirs > 0) {
 		free(incdirs[--nincdirs]);

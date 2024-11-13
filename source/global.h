@@ -244,7 +244,7 @@ void	   verswp_window(void);
 bool	   interpret(int c);	// XXX: probably rename
 int		   handle_input(const int c);
 int		   dispchar2int(const char c);
-int		   process_mouse();
+int		   process_mouse(void);
 int		   changestring(const char *from, const char *to, const bool *const change,
 		   const int change_len);
 

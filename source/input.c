@@ -69,7 +69,7 @@ static void catchint(int sig) {
 	longjmp(env, 1);
 }
 
-static inline bool rebuild_reference() {
+static inline bool rebuild_reference(void) {
 	if(isuptodate == true) {
 		postmsg("The -d option prevents rebuilding the symbol database");
 		return false;

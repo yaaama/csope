@@ -395,7 +395,7 @@ static int getpercent(void) {
 	return (c - 16);
 }
 
-int process_mouse() {
+int process_mouse(void) {
 	int	   i;
 	MOUSE *p;
 	if((p = getmouseaction(DUMMYCHAR)) == NULL) {
