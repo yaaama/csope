@@ -1,0 +1,16 @@
+# -*- mode: yaml -*-
+CompileFlags: # Tweak Parsing
+        Add: [-xc, -Wall, -Wextra, -std=c99]
+        # Remove: -W* # strip all other warning-related flags
+        Compiler: gcc  # Change argv[0] of compile flags to `clang`
+
+Diagnostics:
+        ClangTidy:
+                Add: [bugprone*, performance*, readability*, misc*, clang-analyzer*]
+
+# Includes:
+#         IgnoreHeader: [criterion*]
+
+        # MissingIncludes: Strict
+Completion:
+        AllScopes: true

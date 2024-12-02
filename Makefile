@@ -7,8 +7,12 @@ CPPFLAGS:=-I config/ ${shell pkg-config --cflags ${LIBS}}
 LDLIBS=${shell pkg-config --libs ${LIBS}}
 LEX:=flex
 
+DEBUG := 1
 ifeq (${DEBUG}, 1)
   CFLAGS += -O0 -ggdb -Wall -Wpedantic
+  CFLAGS += -Wextra -Wstrict-prototypes -Wold-style-definition
+  CFLAGS += -Wshadow -Wvla -pedantic -Wno-unused-parameter -Wno-unused-variable -Wunused-function
+  CFLAGS += -fsanitize=address,undefined
 else
   CFLAGS += -O3 -flto=auto -fomit-frame-pointer
 endif
