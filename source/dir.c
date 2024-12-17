@@ -372,8 +372,8 @@ bool is_accessible_file(const char *file) {
 /* NOTE: these macros are somewhat faster than calling strcmp(),
  *        while not significantly uglier
  */
-#define IS_SUFFIX_OF_2(s, suffix) (s[0] == suffix[0] && s[1] == suffix[1])
-#define IS_SUFFIX_OF_3(s, suffix) (s[0] == suffix[0] && s[1] == suffix[1] && s[2] == suffix[2])
+#define IS_SUFFIX_OF_2(s, suffix) ((s)[0] == (suffix)[0] && (s)[1] == (suffix)[1])
+#define IS_SUFFIX_OF_3(s, suffix) ((s)[0] == (suffix)[0] && (s)[1] == (suffix)[1] && (s)[2] == (suffix)[2])
 static
 bool is_source_file(char *path) {
 	struct stat statstruct;
